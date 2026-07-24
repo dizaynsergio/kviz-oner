@@ -27,7 +27,9 @@
     --ease:cubic-bezier(.22,.72,0,1); --ease-spring:cubic-bezier(.34,1.4,.44,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:var(--font-sans); color:var(--ink); background:var(--navy);
+  /* root gradient fills areas behind iOS status bar (sky, top) and bottom bar (navy) so the hero blends edge-to-edge */
+  html{background:linear-gradient(180deg,#86a6ba 0%,#7f9aae 6%,#4a6178 38%,#14233c 74%,#0b2a5b 100%)}
+  body{font-family:var(--font-sans); color:var(--ink); background:transparent;
     -webkit-font-smoothing:antialiased; line-height:1.5; overflow:hidden;}
   h1,h3{font-family:var(--font-serif); font-weight:600; line-height:1.05; letter-spacing:-.01em}
   .italic{font-style:italic}
