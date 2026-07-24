@@ -77,6 +77,11 @@
     color:#fff; font-size:clamp(40px,7vw,92px); line-height:1.06; margin:16px 0 0; text-shadow:0 16px 40px rgba(0,0,0,.45)}
   .hero h1 .accent{color:#e7c98a}
   .hero p.lead{color:rgba(255,255,255,.9); font-size:clamp(16px,1.7vw,20px); max-width:560px; margin-top:22px; line-height:1.55}
+  .hero-usp{list-style:none; display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+  .hero-usp li{display:inline-flex; align-items:center; gap:9px; color:#fff; font-size:14.5px; font-weight:600;
+    background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    padding:9px 16px; border-radius:999px}
+  .hero-usp li::before{content:""; width:7px; height:7px; border-radius:50%; background:#e7c98a; flex:none}
   .hero .addr{display:flex; align-items:center; gap:9px; color:rgba(255,255,255,.82); font-size:14px; font-weight:500; margin-top:20px}
   .hero .addr svg{flex:none}
   .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:34px}
@@ -170,8 +175,13 @@
   <div class="hero-fade-top"></div>
   <div class="hero-blur"></div>
   <div class="hero-inner">
-    <h1>Офисные помещения<br>в бизнес-центре <span class="accent">Oner</span></h1>
-    <p class="lead">Пространство класса «А» для компаний, которые ценят статус, локацию и качественную деловую среду. Подберите планировку за 1 минуту.</p>
+    <h1>Подберите офисное<br>помещение в <span class="accent">Oner</span></h1>
+    <p class="lead">Бизнес-центр класса «А» в центре Алматы</p>
+    <ul class="hero-usp">
+      <li>Площади до 750 м²</li>
+      <li>Потолки до 5,1 м</li>
+      <li>Подземный паркинг</li>
+    </ul>
     <div class="addr">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e7c98a" stroke-width="2"><path d="M12 21s-7-6.4-7-11a7 7 0 1114 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
       ул. Толе би / ул. Абдуллиных, 57 — Медеуский район, Алматы
@@ -194,49 +204,75 @@
 
     <div id="quizFlow">
       <div class="q-top">
-        <span class="q-step" id="qStep">Вопрос 1 из 3</span>
+        <span class="q-step" id="qStep">Вопрос 1 из 5</span>
         <span class="q-pct" id="qPct">Пройдено 0%</span>
       </div>
       <div class="q-bar"><i id="qFill"></i></div>
 
       <!-- Q1 -->
       <div class="q-panel active" data-q="1">
-        <div class="q-title">Какая площадь офиса вам нужна?</div>
-        <div class="q-sub">Выберите ориентировочный формат блока</div>
+        <div class="q-title">Какую площадь помещения вы рассматриваете?</div>
+        <div class="q-sub">Ориентировочный метраж</div>
         <div class="q-opts">
-          <button class="opt" data-val="65,6 – 76,3 м²"><span class="dot"></span><span class="txt"><span class="ttl">65,6 – 76,3 м²</span></span></button>
-          <button class="opt" data-val="131,8 – 193,9 м²"><span class="dot"></span><span class="txt"><span class="ttl">131,8 – 193,9 м²</span></span></button>
-          <button class="opt" data-val="от 366 м²"><span class="dot"></span><span class="txt"><span class="ttl">от 366 м²</span></span></button>
-          <button class="opt" data-val="Этаж целиком"><span class="dot"></span><span class="txt"><span class="ttl">Этаж целиком</span></span></button>
+          <button class="opt" data-val="До 500 м²"><span class="dot"></span><span class="txt"><span class="ttl">До 500 м²</span></span></button>
+          <button class="opt" data-val="500–750 м²"><span class="dot"></span><span class="txt"><span class="ttl">500–750 м²</span></span></button>
+          <button class="opt" data-val="Весь этаж"><span class="dot"></span><span class="txt"><span class="ttl">Весь этаж</span></span></button>
+          <button class="opt" data-val="Нужна консультация"><span class="dot"></span><span class="txt"><span class="ttl">Нужна консультация</span></span></button>
         </div>
       </div>
 
       <!-- Q2 -->
       <div class="q-panel" data-q="2">
-        <div class="q-title">Какой этаж вас интересует?</div>
-        <div class="q-sub">В ONER 9 этажей — от представительского до крупных блоков</div>
+        <div class="q-title">Для каких целей вам необходимо помещение?</div>
+        <div class="q-sub">Это поможет подобрать подходящие варианты</div>
         <div class="q-opts">
-          <button class="opt" data-val="2 этаж"><span class="dot"></span><span class="txt"><span class="ttl">2 этаж</span></span></button>
-          <button class="opt" data-val="3–5 этажи"><span class="dot"></span><span class="txt"><span class="ttl">3–5 этажи</span></span></button>
-          <button class="opt" data-val="6–8 этажи"><span class="dot"></span><span class="txt"><span class="ttl">6–8 этажи</span></span></button>
-          <button class="opt" data-val="Любой этаж"><span class="dot"></span><span class="txt"><span class="ttl">Любой этаж</span></span></button>
+          <button class="opt" data-val="Для собственного офиса"><span class="dot"></span><span class="txt"><span class="ttl">Для собственного офиса</span></span></button>
+          <button class="opt" data-val="Для размещения компании"><span class="dot"></span><span class="txt"><span class="ttl">Для размещения компании</span></span></button>
+          <button class="opt" data-val="Для инвестиций"><span class="dot"></span><span class="txt"><span class="ttl">Для инвестиций</span></span></button>
+          <button class="opt" data-val="Для сдачи в аренду"><span class="dot"></span><span class="txt"><span class="ttl">Для сдачи в аренду</span></span></button>
+          <button class="opt" data-val="Пока рассматриваю варианты"><span class="dot"></span><span class="txt"><span class="ttl">Пока рассматриваю варианты</span></span></button>
         </div>
       </div>
 
       <!-- Q3 -->
       <div class="q-panel" data-q="3">
-        <div class="q-title">Как планируете приобретение?</div>
-        <div class="q-sub">Это поможет подобрать подходящие условия</div>
-        <div class="q-opts two">
-          <button class="opt" data-val="Покупка"><span class="dot"></span><span class="txt"><span class="ttl">Покупка</span></span></button>
-          <button class="opt" data-val="Аренда"><span class="dot"></span><span class="txt"><span class="ttl">Аренда</span></span></button>
-          <button class="opt" data-val="Рассрочка"><span class="dot"></span><span class="txt"><span class="ttl">Рассрочка</span></span></button>
-          <button class="opt" data-val="Ещё выбираю"><span class="dot"></span><span class="txt"><span class="ttl">Ещё выбираю</span></span></button>
+        <div class="q-title">Какой этаж вы рассматриваете?</div>
+        <div class="q-sub">В ONER 9 этажей</div>
+        <div class="q-opts">
+          <button class="opt" data-val="1–2 этажи"><span class="dot"></span><span class="txt"><span class="ttl">1–2 этажи</span></span></button>
+          <button class="opt" data-val="3–5 этажи"><span class="dot"></span><span class="txt"><span class="ttl">3–5 этажи</span></span></button>
+          <button class="opt" data-val="6–9 этажи"><span class="dot"></span><span class="txt"><span class="ttl">6–9 этажи</span></span></button>
+          <button class="opt" data-val="Этаж не имеет значения"><span class="dot"></span><span class="txt"><span class="ttl">Этаж не имеет значения</span></span></button>
+          <button class="opt" data-val="Нужна консультация"><span class="dot"></span><span class="txt"><span class="ttl">Нужна консультация</span></span></button>
         </div>
       </div>
 
-      <!-- Q4 lead form -->
+      <!-- Q4 -->
       <div class="q-panel" data-q="4">
+        <div class="q-title">Когда планируете приобрести помещение?</div>
+        <div class="q-sub">Сроки приобретения</div>
+        <div class="q-opts">
+          <button class="opt" data-val="В ближайшее время"><span class="dot"></span><span class="txt"><span class="ttl">В ближайшее время</span></span></button>
+          <button class="opt" data-val="В течение 1–3 месяцев"><span class="dot"></span><span class="txt"><span class="ttl">В течение 1–3 месяцев</span></span></button>
+          <button class="opt" data-val="В течение 3–6 месяцев"><span class="dot"></span><span class="txt"><span class="ttl">В течение 3–6 месяцев</span></span></button>
+          <button class="opt" data-val="Изучаю предложения"><span class="dot"></span><span class="txt"><span class="ttl">Изучаю предложения</span></span></button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="q-panel" data-q="5">
+        <div class="q-title">Какой способ оплаты вам подходит?</div>
+        <div class="q-sub">Подберём подходящие условия</div>
+        <div class="q-opts">
+          <button class="opt" data-val="Полная оплата"><span class="dot"></span><span class="txt"><span class="ttl">Полная оплата</span></span></button>
+          <button class="opt" data-val="Рассрочка"><span class="dot"></span><span class="txt"><span class="ttl">Рассрочка</span></span></button>
+          <button class="opt" data-val="Хочу узнать доступные условия"><span class="dot"></span><span class="txt"><span class="ttl">Хочу узнать доступные условия</span></span></button>
+          <button class="opt" data-val="Пока не определился"><span class="dot"></span><span class="txt"><span class="ttl">Пока не определился</span></span></button>
+        </div>
+      </div>
+
+      <!-- Lead form -->
+      <div class="q-panel" data-q="6">
         <div class="lead-head">
           <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Подборка готова</span>
           <h3>Куда прислать планировки?</h3>
@@ -296,7 +332,7 @@
   const hint = document.getElementById('qHint');
   const backBtn = document.getElementById('qBack');
   const done = document.getElementById('qDone');
-  const TOTAL_Q = 3;
+  const TOTAL_Q = 5;
   let idx = 0;
   const answers = {};
 
