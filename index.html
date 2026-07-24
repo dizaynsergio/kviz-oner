@@ -153,8 +153,6 @@
   .consent{display:flex; align-items:flex-start; gap:9px; margin-top:16px; font-size:12px; color:var(--muted); line-height:1.5}
   .consent input{margin-top:2px; accent-color:var(--gold); width:15px; height:15px; flex:none}
   .consent a{color:var(--navy); text-decoration:underline; text-underline-offset:2px}
-  .timer{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:16px; font-size:13px; color:var(--muted)}
-  .timer b{color:var(--navy); font-variant-numeric:tabular-nums}
 
   /* success */
   .q-done{display:none; text-align:center; padding:20px 6px; animation:fadeUp .5s var(--ease)}
@@ -269,10 +267,6 @@
             <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
           <label class="consent"><input type="checkbox" checked> Я согласен с обработкой персональных данных и <a href="#">политикой конфиденциальности</a></label>
-          <div class="timer">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            Свободных блоков осталось мало — ответим в течение <b id="timer">04:59</b>
-          </div>
         </form>
       </div>
 
@@ -379,15 +373,6 @@
     if(d.length>=9) out += '-' + d.slice(9,11);
     phone.value = out;
   });
-
-  // countdown
-  let t = 5*60-1;
-  const timerEl = document.getElementById('timer');
-  setInterval(()=>{
-    if(t<=0){ t = 5*60; }
-    timerEl.textContent = String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0');
-    t--;
-  }, 1000);
 
   render();
 })();
