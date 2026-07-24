@@ -121,9 +121,9 @@
   .opt.sel{border-color:var(--gold); background:#fff; box-shadow:var(--shadow-soft)}
   .opt.sel .dot{border-color:var(--gold)}
   .opt.sel .dot::after{transform:scale(1)}
-  .opt .ttl{font-weight:600; font-size:15.5px; color:var(--ink)}
-  .opt .meta{font-size:13px; color:var(--muted); margin-top:2px}
-  .opt .txt{flex:1}
+  .opt .txt{flex:1; display:flex; flex-direction:column; gap:3px}
+  .opt .ttl{font-weight:600; font-size:15.5px; color:var(--ink); line-height:1.25}
+  .opt .meta{display:block; font-size:13px; color:var(--muted); line-height:1.3}
 
   .q-nav{display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:28px}
   .q-back{background:none; border:0; cursor:pointer; font-family:var(--font-sans); font-weight:600; font-size:14px; color:var(--muted);
