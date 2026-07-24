@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONER — Подберите офис в бизнес-центре класса А · Алматы</title>
+<meta name="description" content="Пройдите короткий тест из 3 вопросов и получите подборку офисных планировок в бизнес-центре ONER класса А в центре Алматы. Цены, этажи, условия.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#b8965a; --cyan:#35c4e8; --line:rgba(12,26,46,.10);
+    --ink:#0c1a2e; --ink-soft:#3a4a63; --muted:#6d7f98; --bg:#eef4fb; --bg-2:#f7fafe;
+    --navy:#0b2a5b; --blue:#1f6feb; --blue-2:#3b8cff; --sky:#7cc0ff; --ice:#d7ecff;
+    --surface:#fff; --glass:rgba(255,255,255,.55); --glass-strong:rgba(255,255,255,.72); --glass-line:rgba(255,255,255,.7);
+    --r-sm:14px; --r-md:20px; --r-lg:30px;
+    --shadow-soft:0 24px 60px -28px rgba(15,42,90,.35);
+    --shadow-lift:0 40px 90px -40px rgba(15,42,90,.45);
+    --shadow-gold:0 18px 40px -18px rgba(150,115,55,.55);
+    --grad-blue:linear-gradient(120deg,#0b2a5b 0%,#1f6feb 42%,#35c4e8 78%,#8fd4ff 100%);
+    --grad-gold:linear-gradient(135deg,#c2a066 0%,#b08d50 46%,#8a6b3e 100%);
+    --grad-soft:linear-gradient(135deg,#eaf3ff 0%,#f6fbff 100%);
+    --font-sans:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --font-serif:"Cormorant Garamond","Times New Roman",serif;
+    --pad:clamp(20px,5vw,80px); --maxw:1240px;
+    --ease:cubic-bezier(.22,.72,0,1); --ease-spring:cubic-bezier(.34,1.4,.44,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-sans); color:var(--ink); background:var(--bg);
+    -webkit-font-smoothing:antialiased; line-height:1.5; overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad)}
+  h1,h2,h3{font-family:var(--font-serif); font-weight:600; line-height:1.05; letter-spacing:-.01em}
+  .italic{font-style:italic}
+  a{color:inherit; text-decoration:none}
+  img{max-width:100%; display:block}
+  .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--gold); display:inline-flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--gold); opacity:.7}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; cursor:pointer; border:0;
+    font-family:var(--font-sans); font-weight:600; font-size:15px; line-height:1;
+    padding:16px 26px; border-radius:999px; transition:transform .4s var(--ease-spring), box-shadow .4s var(--ease), background .3s;
+    white-space:nowrap;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-gold{background:var(--grad-gold); color:#fff; box-shadow:var(--shadow-gold)}
+  .btn-gold:hover{transform:translateY(-3px); box-shadow:0 26px 50px -18px rgba(150,115,55,.7)}
+  .btn-glass{background:var(--glass-strong); color:var(--navy); backdrop-filter:blur(14px); border:1px solid var(--glass-line); box-shadow:var(--shadow-soft)}
+  .btn-glass:hover{transform:translateY(-3px)}
+  .btn-ghost{background:rgba(255,255,255,.14); color:#fff; border:1px solid rgba(255,255,255,.28); backdrop-filter:blur(10px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.24)}
+  .btn .ic{width:16px;height:16px;flex:none}
+
+  /* ---------- Header ---------- */
+  header.nav{position:fixed; inset:0 0 auto; z-index:60; padding:16px var(--pad); transition:.4s var(--ease)}
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; justify-content:space-between;
+    padding:12px 16px 12px 22px; border-radius:999px;
+    background:var(--glass-strong); backdrop-filter:blur(18px); border:1px solid var(--glass-line);
+    box-shadow:var(--shadow-soft);
+  }
+  .brand{display:flex; align-items:center; gap:12px}
+  .brand img{height:26px}
+  .nav-links{display:flex; gap:28px; font-size:14px; font-weight:500; color:var(--ink-soft)}
+  .nav-links a{transition:color .25s; position:relative}
+  .nav-links a:hover{color:var(--navy)}
+  .nav-right{display:flex; align-items:center; gap:14px}
+  .nav-phone{font-weight:700; font-size:15px; color:var(--navy); letter-spacing:.01em}
+  @media(max-width:940px){ .nav-links{display:none} .nav-phone{display:none} }
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative; min-height:100svh; display:flex; align-items:flex-end; padding-bottom:clamp(40px,7vh,90px); overflow:hidden}
+  .hero-bg{position:absolute; inset:0; z-index:0}
+  .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:center}
+  .hero-bg::after{content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg,rgba(6,20,45,.5) 0%,rgba(6,20,45,.15) 32%,rgba(6,20,45,.55) 100%);
+  }
+  .hero-inner{position:relative; z-index:2; width:100%; max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad)}
+  .hero .eyebrow{color:#e7c98a}
+  .hero .eyebrow::before{background:#e7c98a}
+  .hero h1{color:#fff; font-size:clamp(46px,8vw,104px); margin:16px 0 0; text-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .hero h1 .accent{color:#e7c98a}
+  .hero p.lead{color:rgba(255,255,255,.9); font-size:clamp(16px,1.7vw,20px); max-width:560px; margin-top:22px; line-height:1.55}
+  .hero .addr{display:flex; align-items:center; gap:9px; color:rgba(255,255,255,.82); font-size:14px; font-weight:500; margin-top:20px}
+  .hero .addr svg{flex:none}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:34px}
+  .scroll-hint{position:absolute; right:var(--pad); bottom:38px; z-index:2; writing-mode:vertical-rl;
+    font-size:11px; letter-spacing:.3em; color:rgba(255,255,255,.7); text-transform:uppercase; display:flex; align-items:center; gap:12px}
+  .scroll-hint::after{content:""; width:1px; height:46px; background:linear-gradient(rgba(255,255,255,.7),transparent)}
+  @media(max-width:640px){ .scroll-hint{display:none} }
+
+  /* pills row under hero */
+  .marquee{background:var(--navy); color:#fff; overflow:hidden; padding:15px 0}
+  .marquee-track{display:flex; gap:56px; white-space:nowrap; animation:slide 24s linear infinite; width:max-content}
+  .marquee-track span{display:inline-flex; align-items:center; gap:14px; font-size:14px; font-weight:500; letter-spacing:.04em; color:rgba(255,255,255,.9)}
+  .marquee-track span::before{content:"◆"; color:var(--gold); font-size:9px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- Section base ---------- */
+  section{position:relative}
+  .sec{padding:clamp(70px,10vw,120px) 0}
+  .sec-head{max-width:640px; margin-bottom:52px}
+  .sec-head h2{font-size:clamp(32px,4.6vw,56px); margin-top:14px}
+  .sec-head p{color:var(--muted); font-size:17px; margin-top:18px; line-height:1.6}
+
+  /* ---------- QUIZ ---------- */
+  .quiz-sec{background:var(--grad-soft); position:relative}
+  .quiz-sec::before{content:""; position:absolute; inset:0;
+    background:radial-gradient(1200px 500px at 80% -10%, rgba(53,196,232,.18), transparent 60%); pointer-events:none}
+  .quiz-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:48px; align-items:center}
+  @media(max-width:920px){ .quiz-grid{grid-template-columns:1fr; gap:34px} }
+  .quiz-aside h2{font-size:clamp(30px,4vw,50px); margin-top:14px}
+  .quiz-aside p{color:var(--ink-soft); font-size:17px; margin-top:18px; line-height:1.6; max-width:420px}
+  .quiz-benefits{margin-top:30px; display:grid; gap:14px}
+  .quiz-benefits li{display:flex; align-items:center; gap:13px; font-size:15px; font-weight:500; color:var(--ink)}
+  .quiz-benefits .chk{width:26px; height:26px; border-radius:50%; background:var(--grad-gold); color:#fff;
+    display:grid; place-items:center; flex:none; box-shadow:var(--shadow-gold)}
+  .quiz-benefits .chk svg{width:13px;height:13px}
+
+  .quiz-card{
+    background:var(--glass-strong); backdrop-filter:blur(20px); border:1px solid var(--glass-line);
+    border-radius:var(--r-lg); box-shadow:var(--shadow-lift); padding:clamp(26px,3.4vw,44px); position:relative; overflow:hidden;
+  }
+  .quiz-card::before{content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--grad-gold)}
+  .q-top{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:8px}
+  .q-step{font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  .q-pct{font-size:13px; font-weight:600; color:var(--muted)}
+  .q-bar{height:7px; border-radius:999px; background:rgba(11,42,91,.1); overflow:hidden; margin-bottom:26px}
+  .q-bar i{display:block; height:100%; width:0; border-radius:999px; background:var(--grad-blue); transition:width .6s var(--ease)}
+
+  .q-panel{display:none; animation:fadeUp .5s var(--ease) both}
+  .q-panel.active{display:block}
+  @keyframes fadeUp{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+  .q-title{font-family:var(--font-serif); font-style:italic; font-size:clamp(24px,3vw,34px); font-weight:600; line-height:1.15; margin-bottom:6px}
+  .q-sub{color:var(--muted); font-size:14px; margin-bottom:22px}
+
+  .q-opts{display:grid; gap:12px}
+  .q-opts.two{grid-template-columns:1fr 1fr}
+  @media(max-width:520px){ .q-opts.two{grid-template-columns:1fr} }
+  .opt{
+    display:flex; align-items:center; gap:15px; cursor:pointer; text-align:left;
+    padding:17px 20px; border-radius:var(--r-md); border:1.5px solid var(--line); background:rgba(255,255,255,.6);
+    transition:.28s var(--ease); font-family:var(--font-sans);
+  }
+  .opt:hover{border-color:var(--gold); transform:translateY(-2px); box-shadow:var(--shadow-soft); background:#fff}
+  .opt .dot{width:22px; height:22px; border-radius:50%; border:2px solid rgba(11,42,91,.25); flex:none; display:grid; place-items:center; transition:.25s}
+  .opt .dot::after{content:""; width:10px; height:10px; border-radius:50%; background:var(--grad-gold); transform:scale(0); transition:.25s var(--ease-spring)}
+  .opt.sel{border-color:var(--gold); background:#fff; box-shadow:var(--shadow-soft)}
+  .opt.sel .dot{border-color:var(--gold)}
+  .opt.sel .dot::after{transform:scale(1)}
+  .opt .ttl{font-weight:600; font-size:15.5px; color:var(--ink)}
+  .opt .meta{font-size:13px; color:var(--muted); margin-top:2px}
+  .opt .txt{flex:1}
+
+  .q-nav{display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:28px}
+  .q-back{background:none; border:0; cursor:pointer; font-family:var(--font-sans); font-weight:600; font-size:14px; color:var(--muted);
+    display:inline-flex; align-items:center; gap:7px; padding:8px 4px; transition:.25s; opacity:.9}
+  .q-back:hover{color:var(--navy)}
+  .q-back[disabled]{opacity:0; pointer-events:none}
+  .q-hint{font-size:13px; color:var(--muted)}
+
+  /* lead form (final step) */
+  .lead-head{text-align:center; margin-bottom:20px}
+  .lead-head .badge{display:inline-flex; align-items:center; gap:8px; background:rgba(53,196,232,.14); color:#0e6f8a;
+    font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:8px 16px; border-radius:999px; margin-bottom:16px}
+  .lead-head h3{font-family:var(--font-serif); font-style:italic; font-size:clamp(26px,3.2vw,36px)}
+  .lead-head p{color:var(--muted); font-size:14.5px; margin-top:8px}
+  .chan{display:flex; gap:12px; margin:22px 0}
+  .chan label{flex:1; cursor:pointer}
+  .chan input{position:absolute; opacity:0}
+  .chan .box{display:flex; align-items:center; justify-content:center; gap:9px; padding:14px; border-radius:var(--r-md);
+    border:1.5px solid var(--line); background:rgba(255,255,255,.6); font-weight:600; font-size:14px; transition:.25s}
+  .chan input:checked + .box{border-color:var(--gold); background:#fff; box-shadow:var(--shadow-soft); color:var(--navy)}
+  .fields{display:grid; gap:12px}
+  .field input{width:100%; padding:16px 18px; border-radius:var(--r-md); border:1.5px solid var(--line);
+    background:rgba(255,255,255,.75); font-family:var(--font-sans); font-size:15px; color:var(--ink); transition:.25s}
+  .field input:focus{outline:0; border-color:var(--gold); background:#fff; box-shadow:0 0 0 4px rgba(184,150,90,.12)}
+  .field input::placeholder{color:#9fb0c6}
+  .lead-submit{width:100%; justify-content:center; margin-top:16px; font-size:16px; padding:18px}
+  .consent{display:flex; align-items:flex-start; gap:9px; margin-top:16px; font-size:12px; color:var(--muted); line-height:1.5}
+  .consent input{margin-top:2px; accent-color:var(--gold); width:15px; height:15px; flex:none}
+  .consent a{color:var(--navy); text-decoration:underline; text-underline-offset:2px}
+  .timer{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:16px; font-size:13px; color:var(--muted)}
+  .timer b{color:var(--navy); font-variant-numeric:tabular-nums}
+
+  /* success */
+  .q-done{display:none; text-align:center; padding:20px 6px; animation:fadeUp .5s var(--ease)}
+  .q-done.active{display:block}
+  .q-done .ok{width:74px; height:74px; border-radius:50%; background:var(--grad-gold); color:#fff; display:grid; place-items:center; margin:0 auto 22px; box-shadow:var(--shadow-gold)}
+  .q-done h3{font-family:var(--font-serif); font-style:italic; font-size:32px; margin-bottom:12px}
+  .q-done p{color:var(--muted); font-size:15px; max-width:340px; margin:0 auto}
+
+  /* ---------- Stats ---------- */
+  .stats{background:var(--navy); color:#fff}
+  .stats .sec-head h2{color:#fff}
+  .stats .sec-head .eyebrow{color:#e7c98a}
+  .stats .sec-head .eyebrow::before{background:#e7c98a}
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px}
+  @media(max-width:820px){ .stat-grid{grid-template-columns:repeat(2,1fr)} }
+  .stat{padding:30px 26px; border-radius:var(--r-md); background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12)}
+  .stat .num{font-family:var(--font-serif); font-size:clamp(42px,5vw,60px); font-weight:600; color:#e7c98a; line-height:1}
+  .stat .lbl{margin-top:12px; font-size:14px; color:rgba(255,255,255,.75); line-height:1.4}
+
+  /* ---------- Gallery ---------- */
+  .gal-grid{display:grid; grid-template-columns:1.4fr 1fr; grid-template-rows:220px 220px; gap:16px}
+  .gal-grid figure{overflow:hidden; border-radius:var(--r-md); box-shadow:var(--shadow-soft); position:relative}
+  .gal-grid figure img{width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease)}
+  .gal-grid figure:hover img{transform:scale(1.06)}
+  .gal-grid .big{grid-row:1/3}
+  @media(max-width:760px){ .gal-grid{grid-template-columns:1fr 1fr; grid-template-rows:170px 170px 170px} .gal-grid .big{grid-row:1/2; grid-column:1/3} }
+
+  /* ---------- Location ---------- */
+  .loc-card{background:var(--glass-strong); backdrop-filter:blur(16px); border:1px solid var(--glass-line);
+    border-radius:var(--r-lg); box-shadow:var(--shadow-lift); padding:clamp(28px,4vw,48px); display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center}
+  @media(max-width:760px){ .loc-card{grid-template-columns:1fr; gap:26px} }
+  .loc-card h2{font-size:clamp(28px,3.6vw,44px)}
+  .loc-addr{margin-top:18px; color:var(--ink-soft); font-size:16px; line-height:1.6}
+  .loc-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
+  .near{display:grid; gap:2px}
+  .near-item{display:flex; align-items:center; justify-content:space-between; padding:15px 4px; border-bottom:1px solid var(--line)}
+  .near-item:last-child{border-bottom:0}
+  .near-item .n{font-weight:600; font-size:15px}
+  .near-item .t{font-size:13px; font-weight:700; color:var(--gold); display:inline-flex; align-items:center; gap:6px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink); color:rgba(255,255,255,.7); padding:60px var(--pad) 34px}
+  .foot-inner{max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px}
+  @media(max-width:760px){ .foot-inner{grid-template-columns:1fr; gap:28px} }
+  .foot-inner img{height:28px; margin-bottom:18px}
+  .foot-col h4{font-family:var(--font-sans); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; font-weight:700}
+  .foot-col p, .foot-col a{font-size:14.5px; line-height:1.7; color:rgba(255,255,255,.72)}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{max-width:var(--maxw); margin:44px auto 0; padding-top:22px; border-top:1px solid rgba(255,255,255,.12);
+    display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:13px; color:rgba(255,255,255,.5)}
+  .foot-bottom .hayat{display:flex; align-items:center; gap:10px}
+  .foot-bottom .hayat img{height:20px; margin:0; filter:brightness(0) invert(1); opacity:.7}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><img src="assets/img/oner-navy.svg" alt="ONER"></a>
+    <nav class="nav-links">
+      <a href="#quiz">Подбор офиса</a>
+      <a href="#stats">Характеристики</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#location">Локация</a>
+    </nav>
+    <div class="nav-right">
+      <a href="tel:+77088881221" class="nav-phone">+7 708 888 12 21</a>
+      <a href="#quiz" class="btn btn-gold" style="padding:12px 22px">Подобрать офис</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="assets/renders/007.jpg" alt="Бизнес-центр ONER"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Бизнес-центр класса А · Алматы</span>
+    <h1>Офисы в БЦ <span class="italic accent">Oner</span><br>с видом на деловой центр</h1>
+    <p class="lead">Пространство класса «А» для компаний, которые ценят статус, локацию и качественную деловую среду. Подберите планировку за 1 минуту.</p>
+    <div class="addr">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e7c98a" stroke-width="2"><path d="M12 21s-7-6.4-7-11a7 7 0 1114 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      ул. Толе би / ул. Абдуллиных, 57 — Медеуский район, Алматы
+    </div>
+    <div class="hero-cta">
+      <a href="#quiz" class="btn btn-gold">Подобрать планировку
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#location" class="btn btn-ghost">Смотреть локацию</a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Класс А</span><span>9 этажей</span><span>Витражное остекление</span><span>Подземный паркинг</span><span>Высота потолков от 3,6 м</span><span>2 скоростных лифта</span>
+    <span>Класс А</span><span>9 этажей</span><span>Витражное остекление</span><span>Подземный паркинг</span><span>Высота потолков от 3,6 м</span><span>2 скоростных лифта</span>
+  </div>
+</div>
+
+<!-- ============ QUIZ ============ -->
+<section class="quiz-sec sec" id="quiz">
+  <div class="wrap quiz-grid">
+    <div class="quiz-aside">
+      <span class="eyebrow">Подбор за 1 минуту</span>
+      <h2>Подберите офис<br>и узнайте <span class="italic">стоимость</span></h2>
+      <p>Ответьте на 3 коротких вопроса — и мы подготовим подборку планировок с ценами и свободными этажами именно под ваш запрос.</p>
+      <ul class="quiz-benefits">
+        <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Актуальные площади и цены на этаж</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Планировки в формате PDF</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Условия покупки и аренды</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span> Без спама — ответим в удобном мессенджере</li>
+      </ul>
+    </div>
+
+    <div class="quiz-card">
+      <div id="quizFlow">
+        <div class="q-top">
+          <span class="q-step" id="qStep">Вопрос 1 из 3</span>
+          <span class="q-pct" id="qPct">Пройдено 0%</span>
+        </div>
+        <div class="q-bar"><i id="qFill"></i></div>
+
+        <!-- Q1 -->
+        <div class="q-panel active" data-q="1">
+          <div class="q-title">Какая площадь офиса вам нужна?</div>
+          <div class="q-sub">Выберите ориентировочный формат блока</div>
+          <div class="q-opts">
+            <button class="opt" data-val="Компактный блок 65–76 м²"><span class="dot"></span><span class="txt"><span class="ttl">Компактный блок</span><span class="meta">65,6 – 76,3 м²</span></span></button>
+            <button class="opt" data-val="Средний блок 131–194 м²"><span class="dot"></span><span class="txt"><span class="ttl">Средний блок</span><span class="meta">131,8 – 193,9 м²</span></span></button>
+            <button class="opt" data-val="Крупный блок от 366 м²"><span class="dot"></span><span class="txt"><span class="ttl">Крупный блок / полуэтаж</span><span class="meta">от 366 м²</span></span></button>
+            <button class="opt" data-val="Этаж целиком"><span class="dot"></span><span class="txt"><span class="ttl">Этаж целиком</span><span class="meta">под штаб-квартиру компании</span></span></button>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="q-panel" data-q="2">
+          <div class="q-title">Какой этаж вас интересует?</div>
+          <div class="q-sub">В ONER 9 этажей — от представительского до крупных блоков</div>
+          <div class="q-opts">
+            <button class="opt" data-val="2 этаж — представительский"><span class="dot"></span><span class="txt"><span class="ttl">2 этаж — представительский</span><span class="meta">Второй свет, балконы, крупные блоки</span></span></button>
+            <button class="opt" data-val="3–5 этажи — типовые"><span class="dot"></span><span class="txt"><span class="ttl">3–5 этажи — типовые</span><span class="meta">Деление на 2–4 офисных блока</span></span></button>
+            <button class="opt" data-val="6–8 этажи — крупные блоки"><span class="dot"></span><span class="txt"><span class="ttl">6–8 этажи — крупные блоки</span><span class="meta">Целые полуэтажи от 366 м²</span></span></button>
+            <button class="opt" data-val="Любой этаж"><span class="dot"></span><span class="txt"><span class="ttl">Любой этаж</span><span class="meta">Покажите все свободные варианты</span></span></button>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="q-panel" data-q="3">
+          <div class="q-title">Как планируете приобретение?</div>
+          <div class="q-sub">Это поможет подобрать подходящие условия</div>
+          <div class="q-opts two">
+            <button class="opt" data-val="Покупка"><span class="dot"></span><span class="txt"><span class="ttl">Покупка</span></span></button>
+            <button class="opt" data-val="Аренда"><span class="dot"></span><span class="txt"><span class="ttl">Аренда</span></span></button>
+            <button class="opt" data-val="Рассрочка"><span class="dot"></span><span class="txt"><span class="ttl">Рассрочка</span></span></button>
+            <button class="opt" data-val="Ещё выбираю"><span class="dot"></span><span class="txt"><span class="ttl">Ещё выбираю</span></span></button>
+          </div>
+        </div>
+
+        <!-- Q4 lead form -->
+        <div class="q-panel" data-q="4">
+          <div class="lead-head">
+            <span class="badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Подборка готова</span>
+            <h3>Куда прислать планировки?</h3>
+            <p>Оставьте контакт — вышлем подборку и рассчитаем стоимость</p>
+          </div>
+          <div class="chan">
+            <label><input type="radio" name="chan" value="WhatsApp" checked><span class="box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm5.6 14.2c-.2.6-1.2 1.1-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.3.5-.5.7-.7 1-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.2.1.4.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.1.1.6-.1 1.2z"/></svg>
+              WhatsApp</span></label>
+            <label><input type="radio" name="chan" value="Звонок"><span class="box">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></svg>
+              Звонок</span></label>
+          </div>
+          <form class="fields" id="leadForm" novalidate>
+            <div class="field"><input type="text" name="name" placeholder="Ваше имя" autocomplete="name"></div>
+            <div class="field"><input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required></div>
+            <button type="submit" class="btn btn-gold lead-submit">Получить планировки
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <label class="consent"><input type="checkbox" checked> Я согласен с обработкой персональных данных и <a href="#">политикой конфиденциальности</a></label>
+            <div class="timer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Свободных блоков осталось мало — ответим в течение <b id="timer">04:59</b>
+            </div>
+          </form>
+        </div>
+
+        <!-- nav -->
+        <div class="q-nav" id="qNav">
+          <button class="q-back" id="qBack" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg> Назад
+          </button>
+          <span class="q-hint" id="qHint">Выберите вариант, чтобы продолжить</span>
+        </div>
+      </div>
+
+      <!-- success -->
+      <div class="q-done" id="qDone">
+        <div class="ok"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>Заявка принята!</h3>
+        <p>Спасибо! Менеджер ONER свяжется с вами в ближайшее время и пришлёт подборку планировок.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats sec" id="stats">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Характеристики</span>
+      <h2>Цифры, которые <span class="italic">формируют масштаб</span></h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="num">9</div><div class="lbl">Этажей выше уровня земли</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Скоростных лифта</div></div>
+      <div class="stat"><div class="num">3,6&nbsp;м</div><div class="lbl">Высота потолков — от</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Уровня подземного паркинга</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Галерея рендеров</span>
+      <h2>Проект глазами <span class="italic">архитекторов</span></h2>
+      <p>От вечернего сияния стекла до утреннего кофе на террасе — обтекаемые формы и витражный свет.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="big"><img src="assets/renders/003.jpg" alt="Рендер ONER"></figure>
+      <figure><img src="assets/renders/001.jpg" alt="Рендер ONER"></figure>
+      <figure><img src="assets/renders/006.jpg" alt="Рендер ONER"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATION ============ -->
+<section class="sec" id="location" style="padding-top:0">
+  <div class="wrap">
+    <div class="loc-card">
+      <div>
+        <span class="eyebrow">Локация</span>
+        <h2>В центре деловой<br><span class="italic">активности</span> Алматы</h2>
+        <div class="loc-addr">
+          <strong>ONER Business Center</strong><br>
+          г. Алматы, Медеуский район<br>
+          ул. Толе би / ул. Абдуллиных, 57
+        </div>
+        <div class="loc-cta">
+          <a href="#quiz" class="btn btn-gold">Подобрать офис</a>
+          <a href="tel:+77088881221" class="btn btn-glass">Заказать звонок</a>
+        </div>
+      </div>
+      <div class="near">
+        <div class="near-item"><span class="n">Вознесенский собор</span><span class="t">1 мин</span></div>
+        <div class="near-item"><span class="n">Театр оперы и балета</span><span class="t">7 мин</span></div>
+        <div class="near-item"><span class="n">Гостиница «Казахстан»</span><span class="t">8 мин</span></div>
+        <div class="near-item"><span class="n">Dostyk Plaza</span><span class="t">10 мин</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-col">
+      <img src="assets/img/oner-navy.svg" alt="ONER" style="filter:brightness(0) invert(1)">
+      <p>Современный бизнес-центр класса А в центре деловой активности Алматы. Пространство, где статус становится средой.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Контакты</h4>
+      <p><a href="tel:+77088881221">+7 708 888 12 21</a></p>
+      <p>Бизнес-центр:<br>ул. Толе би / ул. Абдуллиных, 57</p>
+      <p>Отдел продаж:<br>ул. Сагадат Нурмагамбетова, 28Б</p>
+    </div>
+    <div class="foot-col">
+      <h4>Навигация</h4>
+      <p><a href="#quiz">Подбор офиса</a></p>
+      <p><a href="#stats">Характеристики</a></p>
+      <p><a href="#gallery">Галерея</a></p>
+      <p><a href="#location">Локация</a></p>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 ONER Business Center. Все права защищены.</span>
+    <span class="hayat">Застройщик <img src="assets/img/hayat-mark-navy.svg" alt="Hayat"> Hayat</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const flow = document.getElementById('quizFlow');
+  const panels = [...flow.querySelectorAll('.q-panel')];
+  const fill = document.getElementById('qFill');
+  const stepEl = document.getElementById('qStep');
+  const pctEl = document.getElementById('qPct');
+  const hint = document.getElementById('qHint');
+  const backBtn = document.getElementById('qBack');
+  const done = document.getElementById('qDone');
+  const TOTAL_Q = 3; // scored questions
+  let idx = 0;
+  const answers = {};
+
+  function render(){
+    panels.forEach((p,i)=>p.classList.toggle('active', i===idx));
+    const isLead = idx === panels.length - 1;
+    const pct = Math.round((idx/TOTAL_Q)*100);
+    fill.style.width = Math.min(pct,100) + '%';
+    if(isLead){
+      stepEl.textContent = 'Финальный шаг';
+      pctEl.textContent = 'Пройдено 100%';
+      fill.style.width = '100%';
+      hint.textContent = 'Заполните контакты';
+    }else{
+      stepEl.textContent = 'Вопрос ' + (idx+1) + ' из ' + TOTAL_Q;
+      pctEl.textContent = 'Пройдено ' + pct + '%';
+      hint.textContent = answers[idx] ? 'Отлично! Можно продолжать' : 'Выберите вариант, чтобы продолжить';
+    }
+    backBtn.disabled = idx === 0;
+  }
+
+  // option selection -> auto advance
+  panels.forEach((panel,pi)=>{
+    panel.querySelectorAll('.opt').forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        panel.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+        opt.classList.add('sel');
+        answers[pi] = opt.dataset.val;
+        hint.textContent = 'Отлично! Можно продолжать';
+        setTimeout(()=>{ if(idx < panels.length-1){ idx++; render(); } }, 320);
+      });
+    });
+  });
+
+  backBtn.addEventListener('click', ()=>{ if(idx>0){ idx--; render(); } });
+
+  // lead submit
+  const leadForm = document.getElementById('leadForm');
+  leadForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    const phone = leadForm.phone.value.trim();
+    if(phone.replace(/\D/g,'').length < 10){
+      leadForm.phone.style.borderColor = '#e0574f';
+      leadForm.phone.focus();
+      return;
+    }
+    // Here you would POST answers + contact to your CRM / backend.
+    // console.log({...answers, name:leadForm.name.value, phone, channel:document.querySelector('[name=chan]:checked').value});
+    flow.style.display = 'none';
+    done.classList.add('active');
+  });
+
+  // phone mask (simple KZ)
+  const phone = leadForm.phone;
+  phone.addEventListener('input', ()=>{
+    phone.style.borderColor = '';
+    let d = phone.value.replace(/\D/g,'');
+    if(d.startsWith('8')) d = '7' + d.slice(1);
+    if(!d.startsWith('7')) d = '7' + d;
+    d = d.slice(0,11);
+    let out = '+7';
+    if(d.length>1) out += ' (' + d.slice(1,4);
+    if(d.length>=4) out += ') ' + d.slice(4,7);
+    if(d.length>=7) out += '-' + d.slice(7,9);
+    if(d.length>=9) out += '-' + d.slice(9,11);
+    phone.value = out;
+  });
+
+  // countdown timer
+  let t = 5*60-1;
+  const timerEl = document.getElementById('timer');
+  setInterval(()=>{
+    if(t<=0){ t = 5*60; }
+    const m = String(Math.floor(t/60)).padStart(2,'0');
+    const s = String(t%60).padStart(2,'0');
+    timerEl.textContent = m+':'+s;
+    t--;
+  }, 1000);
+
+  // nav shadow on scroll
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', ()=>{
+    nav.style.paddingTop = window.scrollY > 20 ? '10px' : '16px';
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
