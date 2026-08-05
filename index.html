@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#86a6ba">
+<meta name="theme-color" content="#cbb392">
 <title>ONER — Подберите офис в бизнес-центре класса А · Алматы</title>
 <meta name="description" content="Пройдите короткий тест из 3 вопросов и получите подборку офисных планировок в бизнес-центре ONER класса А в центре Алматы.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,16 +11,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --gold:#b8965a; --cyan:#35c4e8; --line:rgba(12,26,46,.10);
-    --ink:#0c1a2e; --ink-soft:#3a4a63; --muted:#6d7f98; --bg:#eef4fb; --bg-2:#f7fafe;
-    --navy:#0b2a5b; --blue:#1f6feb; --blue-2:#3b8cff; --sky:#7cc0ff; --ice:#d7ecff;
-    --surface:#fff; --glass:rgba(255,255,255,.55); --glass-strong:rgba(255,255,255,.72); --glass-line:rgba(255,255,255,.7);
+    --gold:#b08d50; --accent:#e3c48f; --line:rgba(58,51,48,.12);
+    --ink:#332a25; --ink-soft:#5c5049; --muted:#8a7d72; --bg:#f3ece1; --bg-2:#faf6f0;
+    --navy:#3a3330; --cream:#e1d4c2;
+    --surface:#fff; --glass:rgba(255,250,242,.55); --glass-strong:rgba(255,250,242,.74); --glass-line:rgba(255,250,242,.7);
     --r-sm:14px; --r-md:20px; --r-lg:30px;
-    --shadow-soft:0 24px 60px -28px rgba(15,42,90,.35);
-    --shadow-lift:0 40px 90px -40px rgba(15,42,90,.45);
+    --shadow-soft:0 24px 60px -28px rgba(42,31,22,.35);
+    --shadow-lift:0 40px 90px -40px rgba(42,31,22,.45);
     --shadow-gold:0 18px 40px -18px rgba(150,115,55,.55);
-    --grad-blue:linear-gradient(120deg,#0b2a5b 0%,#1f6feb 42%,#35c4e8 78%,#8fd4ff 100%);
+    --grad-blue:linear-gradient(120deg,#8a6b3e 0%,#b08d50 42%,#d9c19a 78%,#f0ddbb 100%);
     --grad-gold:linear-gradient(135deg,#c2a066 0%,#b08d50 46%,#8a6b3e 100%);
+    --grad-dark:linear-gradient(180deg,#2b211a 0%,#c99770 50%,#2b211a 100%);
     --font-sans:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     --font-serif:"Cormorant Garamond","Times New Roman",serif;
     --pad:clamp(20px,5vw,80px); --maxw:1240px;
@@ -28,7 +29,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   /* root gradient fills areas behind iOS status bar (sky, top) and bottom bar (navy) so the hero blends edge-to-edge */
-  html{background:linear-gradient(180deg,#86a6ba 0%,#7f9aae 6%,#4a6178 38%,#14233c 74%,#0b2a5b 100%)}
+  html{background:linear-gradient(180deg,#cbb392 0%,#b89a72 6%,#7a5f45 38%,#4a372a 74%,#3a3330 100%)}
   body{font-family:var(--font-sans); color:var(--ink); background:transparent;
     -webkit-font-smoothing:antialiased; line-height:1.5; overflow:hidden;}
   h1,h3{font-family:var(--font-serif); font-weight:600; line-height:1.05; letter-spacing:-.01em}
@@ -59,15 +60,15 @@
   .hero-bg{position:fixed; inset:0; z-index:0}
   .hero-bg img{width:100%; height:100%; object-fit:cover; object-position:center}
   .hero-bg::after{content:""; position:fixed; inset:0; z-index:0;
-    background:linear-gradient(180deg,rgba(6,20,45,.45) 0%,rgba(6,20,45,.08) 26%,rgba(6,20,45,.45) 62%,rgba(6,20,45,.9) 100%);}
+    background:linear-gradient(180deg,rgba(42,31,22,.45) 0%,rgba(42,31,22,.08) 26%,rgba(42,31,22,.45) 62%,rgba(42,31,22,.9) 100%);}
   .hero-fade-top{position:fixed; left:0; right:0; top:0; height:24%; z-index:1; pointer-events:none;
     backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
-    background:linear-gradient(180deg,rgba(134,166,186,.6) 0%,rgba(134,166,186,.14) 55%,transparent 100%);
+    background:linear-gradient(180deg,rgba(203,179,146,.6) 0%,rgba(203,179,146,.14) 55%,transparent 100%);
     -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 48%,transparent 100%);
     mask-image:linear-gradient(180deg,#000 0%,#000 48%,transparent 100%);}
   .hero-blur{position:fixed; left:0; right:0; bottom:0; height:50%; z-index:1; pointer-events:none;
     backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-    background:linear-gradient(180deg,rgba(6,20,45,0) 0%,rgba(6,20,45,.38) 55%,rgba(6,20,45,.8) 100%);
+    background:linear-gradient(180deg,rgba(42,31,22,0) 0%,rgba(42,31,22,.38) 55%,rgba(42,31,22,.8) 100%);
     -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 40%,#000 100%);
     mask-image:linear-gradient(180deg,transparent 0%,#000 40%,#000 100%);}
   .hero-inner{position:relative; z-index:2; width:100%; max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad)}
@@ -99,8 +100,8 @@
   .modal.open .quiz-card{transform:none}
   .quiz-card::before{content:""; position:absolute; top:0; left:0; right:0; height:4px; background:var(--grad-gold)}
   .q-close{position:absolute; top:16px; right:16px; z-index:5; width:38px; height:38px; border-radius:50%; border:0; cursor:pointer;
-    background:rgba(11,42,91,.07); color:var(--navy); display:grid; place-items:center; transition:.25s}
-  .q-close:hover{background:rgba(11,42,91,.14); transform:rotate(90deg)}
+    background:rgba(58,51,48,.07); color:var(--navy); display:grid; place-items:center; transition:.25s}
+  .q-close:hover{background:rgba(58,51,48,.14); transform:rotate(90deg)}
 
   .q-top{display:flex; align-items:center; justify-content:space-between; gap:16px; margin:4px 44px 8px 0}
   .q-step{font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
@@ -121,7 +122,7 @@
     padding:17px 20px; border-radius:var(--r-md); border:1.5px solid var(--line); background:rgba(255,255,255,.6);
     transition:.28s var(--ease); font-family:var(--font-sans);}
   .opt:hover{border-color:var(--gold); transform:translateY(-2px); box-shadow:var(--shadow-soft); background:#fff}
-  .opt .dot{width:22px; height:22px; border-radius:50%; border:2px solid rgba(11,42,91,.25); flex:none; display:grid; place-items:center; transition:.25s}
+  .opt .dot{width:22px; height:22px; border-radius:50%; border:2px solid rgba(58,51,48,.25); flex:none; display:grid; place-items:center; transition:.25s}
   .opt .dot::after{content:""; width:10px; height:10px; border-radius:50%; background:var(--grad-gold); transform:scale(0); transition:.25s var(--ease-spring)}
   .opt.sel{border-color:var(--gold); background:#fff; box-shadow:var(--shadow-soft)}
   .opt.sel .dot{border-color:var(--gold)}
@@ -139,7 +140,7 @@
 
   /* lead form */
   .lead-head{text-align:center; margin-bottom:20px}
-  .lead-head .badge{display:inline-flex; align-items:center; gap:8px; background:rgba(53,196,232,.14); color:#0e6f8a;
+  .lead-head .badge{display:inline-flex; align-items:center; gap:8px; background:rgba(176,141,80,.16); color:#7a5f2e;
     font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:8px 16px; border-radius:999px; margin-bottom:16px}
   .lead-head h3{font-family:"Inter",var(--font-sans); font-style:normal; font-weight:700; letter-spacing:-.01em; font-size:clamp(24px,3vw,32px)}
   .lead-head p{color:var(--muted); font-size:14.5px; margin-top:8px}
